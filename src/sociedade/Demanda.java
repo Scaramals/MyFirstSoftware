@@ -1,29 +1,25 @@
 package sociedade;
 
+import java.util.Date;
+
+import entities.enums.StatusDemanda;
+
 public class Demanda extends Pessoa{
 	
 	private int n_protocolo;
 	private String tipo;
 	private String orgao;
-	private String status;
+	private Date dataDemanda;
+	private StatusDemanda status;
 	private String oficio;
 	private String observacao;
 	private String indicacao;
 	
 	public Demanda(String nome, String cpf, String telefone, String email, String nacionalidade, String data_nascimento,
 			String endereco, String doc_eleitoral, String sexo, String profissao, int n_protocolo, String tipo,
-			String orgao, String status, String oficio, String observacao, String indicacao) {
+			String orgao, StatusDemanda status, String oficio, String observacao, String indicacao, Date dataDemanda) {
 		
-		super.setNome(nome);
-		super.setCpf(cpf);
-		super.setTelefone(telefone);
-		super.setEmail(email);
-		super.setNacionalidade(nacionalidade);
-		super.setData_nascimento(data_nascimento);
-		super.setEndereco(endereco);
-		super.setDoc_eleitoral(doc_eleitoral);
-		super.setSexo(sexo);
-		super.setProfissao(profissao);
+		super(nome,cpf,telefone,email,nacionalidade, data_nascimento,endereco,doc_eleitoral,sexo,profissao);
 		setN_protocolo(n_protocolo);
 		setTipo(tipo);
 		setOrgao(orgao);
@@ -31,6 +27,8 @@ public class Demanda extends Pessoa{
 		setOficio(oficio);
 		setObservacao(observacao);
 		setIndicacao(indicacao);
+		setDataDemanda(dataDemanda);
+		
 	}
 	
 	public int getN_protocolo() {
@@ -51,10 +49,10 @@ public class Demanda extends Pessoa{
 	public void setOrgao(String orgao) {
 		this.orgao = orgao;
 	}
-	public String getStatus() {
+	public StatusDemanda getStatus() {
 		return status;
 	}
-	public void setStatus(String status) {
+	public void setStatus(StatusDemanda status) {
 		this.status = status;
 	}
 	public String getOficio() {
@@ -75,12 +73,19 @@ public class Demanda extends Pessoa{
 	public void setIndicacao(String indicacao) {
 		this.indicacao = indicacao;
 	}
+	public Date getDataDemanda() {
+		return dataDemanda;
+	}
+	public void setDataDemanda(Date dataDemanda) {
+		this.dataDemanda = dataDemanda;
+	}
+
 
 	@Override
 	public String toString() {
 		return "Demanda ["+ super.toString() + ", protocolo = " + getN_protocolo() + ", Tipo = " + getTipo() + ", Orgao = "
 				+ getOrgao() + ", Status = " + getStatus() + ", Oficio = " + getOficio() + ", Observacao = "
-				+ getObservacao() + ", Indicacao = " + getIndicacao() + "]";
+				+ getObservacao() + ", Indicacao = " + getIndicacao() + " Data: " + getDataDemanda() + "]";
 	}
 	
 	
