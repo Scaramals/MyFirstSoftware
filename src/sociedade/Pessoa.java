@@ -1,4 +1,8 @@
 package sociedade;
+
+import java.util.ArrayList;
+import java.util.List;
+
 //perguntar sobre como colocar para os atributos não serem nulos, perguntar sobre a data de nascimento e data da demanda e sobre a necessidade de um metodo cadastra
 public class Pessoa {
 	
@@ -12,14 +16,15 @@ public class Pessoa {
 	private String doc_eleitoral;
 	private String sexo;
 	private String profissao;
+	private List<Demanda> demanda = new ArrayList<>();
+	private Adm indicacao;
 	
 	public Pessoa() {
 		
 	}
 	
 	public Pessoa(String nome, String cpf, String telefone, String email, String nacionalidade, String data_nascimento,
-			String endereco, String doc_eleitoral, String sexo, String profissao) {
-		super();
+			String endereco, String doc_eleitoral, String sexo, String profissao, Adm indicacao) {
 		setNome(nome);
 		setCpf(cpf);
 		setTelefone(telefone);
@@ -30,6 +35,7 @@ public class Pessoa {
 		setDoc_eleitoral(doc_eleitoral);
 		setSexo(sexo);
 		setProfissao(profissao);
+		setIndicacao(indicacao);
 	}
 
 	public String getNome() {
@@ -111,12 +117,28 @@ public class Pessoa {
 	public void setProfissao(String profissao) {
 		this.profissao = profissao;
 	}
+	
+	public List<Demanda> getDemanda(){
+		return demanda;
+	}
+	public void setDemanda(List<Demanda> demanda) {
+		this.demanda = demanda;
+	}
+	
+
+	public Adm getIndicacao() {
+		return indicacao;
+	}
+
+	public void setIndicacao(Adm indicacao) {
+		this.indicacao = indicacao;
+	}
 
 	@Override
 	public String toString() {
 		return "Pessoa [nome=" + getNome() + ", cpf=" + getCpf() + ", telefone=" + getTelefone() + ", email=" + getEmail()
 				+ ", nacionalidade=" + getNacionalidade() + ", data_nascimento=" + getData_nascimento() + ", endereco=" + getEndereco()
-				+ ", doc_eleitoral=" + getDoc_eleitoral() + ", sexo=" + getSexo() + ", profissao=" + getProfissao() + "]";
+				+ ", doc_eleitoral=" + getDoc_eleitoral() + ", sexo=" + getSexo() + ", profissao=" + getProfissao() + "Indicado: " + getIndicacao()+ ", Demandas: " + getDemanda() + "]";
 	}
 	
 	

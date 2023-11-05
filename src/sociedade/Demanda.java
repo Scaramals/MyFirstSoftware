@@ -4,8 +4,9 @@ import java.util.Date;
 
 import entities.enums.StatusDemanda;
 
-public class Demanda extends Pessoa{
+public class Demanda {
 	
+	private Pessoa pessoa;//como a demanda tem apenas uma pessoa
 	private int n_protocolo;
 	private String tipo;
 	private String orgao;
@@ -13,13 +14,12 @@ public class Demanda extends Pessoa{
 	private StatusDemanda status;
 	private String oficio;
 	private String observacao;
-	private String indicacao;
+	private Adm indicacao;
 	
-	public Demanda(String nome, String cpf, String telefone, String email, String nacionalidade, String data_nascimento,
-			String endereco, String doc_eleitoral, String sexo, String profissao, int n_protocolo, String tipo,
-			String orgao, StatusDemanda status, String oficio, String observacao, String indicacao, Date dataDemanda) {
+	public Demanda(Pessoa pessoa, int n_protocolo, String tipo,
+			String orgao, StatusDemanda status, String oficio, String observacao, Adm indicacao, Date dataDemanda) {
 		
-		super(nome,cpf,telefone,email,nacionalidade, data_nascimento,endereco,doc_eleitoral,sexo,profissao);
+		setPessoa(pessoa);
 		setN_protocolo(n_protocolo);
 		setTipo(tipo);
 		setOrgao(orgao);
@@ -29,6 +29,12 @@ public class Demanda extends Pessoa{
 		setIndicacao(indicacao);
 		setDataDemanda(dataDemanda);
 		
+	}
+	public Pessoa getPessoa() {
+		return pessoa;
+	}
+	public void setPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
 	}
 	
 	public int getN_protocolo() {
@@ -67,10 +73,10 @@ public class Demanda extends Pessoa{
 	public void setObservacao(String observacao) {
 		this.observacao = observacao;
 	}
-	public String getIndicacao() {
+	public Adm getIndicacao() {
 		return indicacao;
 	}
-	public void setIndicacao(String indicacao) {
+	public void setIndicacao(Adm indicacao) {
 		this.indicacao = indicacao;
 	}
 	public Date getDataDemanda() {
@@ -83,7 +89,7 @@ public class Demanda extends Pessoa{
 
 	@Override
 	public String toString() {
-		return "Demanda ["+ super.toString() + ", protocolo = " + getN_protocolo() + ", Tipo = " + getTipo() + ", Orgao = "
+		return "Demanda ["+ "Pessoa: " + getPessoa() + ", protocolo = " + getN_protocolo() + ", Tipo = " + getTipo() + ", Orgao = "
 				+ getOrgao() + ", Status = " + getStatus() + ", Oficio = " + getOficio() + ", Observacao = "
 				+ getObservacao() + ", Indicacao = " + getIndicacao() + " Data: " + getDataDemanda() + "]";
 	}
