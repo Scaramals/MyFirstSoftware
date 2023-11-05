@@ -8,8 +8,8 @@ public class Adm extends Pessoa{
 	
 	private int id;
 	private String senha;
-	private List<Demanda> demanda = new ArrayList<>();
-	private List<Pessoa> pessoa = new ArrayList<>();
+	private List<Demanda> demandas = new ArrayList<>();
+	private List<Pessoa> pessoas = new ArrayList<>();
 	
 	public Adm() {
 		
@@ -44,20 +44,28 @@ public class Adm extends Pessoa{
 		this.senha = senha;
 	}
 
-	public List<Demanda> getDemanda() {
-		return demanda;
+	public List<Demanda> getDemandas() {
+		return demandas;
 	}
 
-	public void setDemanda(List<Demanda> demanda) {
-		this.demanda = demanda;
+	public List<Pessoa> getPessoas() {
+		return pessoas;
 	}
-
-	public List<Pessoa> getPessoa() {
-		return pessoa;
+	
+	public void addPessoa(Pessoa pessoa) {
+		pessoas.add(pessoa);
 	}
-
-	public void setPessoa(List<Pessoa> pessoa) {
-		this.pessoa = pessoa;
+	
+	public void removePessoa(Pessoa pessoa) {
+		pessoas.remove(pessoa);
+	}
+	
+	public void addDemanda(Demanda demanda) {
+		demandas.add(demanda);
+	}
+	
+	public void removeDemanda(Demanda demanda) {
+		demandas.remove(demanda);
 	}
 	
 
